@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Brownie — A Little Night Light</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --accent:#ff7ab6;
+      --accent-2:#ffd166;
+      --muted:#9aa7bd;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+    body{
+      margin:0;
+      background:radial-gradient(800px at 50% 20%, rgba(255,209,102,0.08), transparent 70%), radial-gradient(600px at 70% 80%, rgba(255,122,182,0.05), transparent 80%), var(--bg);
+      color:#e6eef8;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      padding:20px;
+    }
+    .container{
+      width:100%;
+      max-width:900px;
+      background:rgba(255,255,255,0.03);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 0 40px rgba(0,0,0,0.6);
+    }
+    h1{text-align:center;margin:0;color:var(--accent-2)}
+    h2{text-align:center;margin-top:8px;color:var(--muted);font-weight:400}
+    img{width:100%;border-radius:14px;margin:18px 0;object-fit:cover;max-height:400px}
+    .reasons{margin-top:20px;display:grid;gap:10px}
+    .reason{background:rgba(255,255,255,0.04);padding:10px 14px;border-radius:12px;cursor:pointer;position:relative;transition:background 0.3s;}
+    .reason:hover{background:rgba(255,255,255,0.08);}
+    .popup{opacity:0;transition:opacity 0.5s ease;margin-top:8px;font-size:0.9em;color:var(--accent-2);}
+    .popup.show{opacity:1;}
+    .secret{margin-top:24px;background:rgba(255,255,255,0.05);padding:14px;border-radius:12px}
+    input{padding:8px;border:none;border-radius:8px;margin-right:8px}
+    button{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;background:var(--accent);color:#10121a;font-weight:600}
+    .note{margin-top:18px;background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;min-height:80px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>For Sunaina Giri (Brownie) 💖</h1>
+    <h2>Sending you this website, XOXO OWL</h2>
+    <img src="https://i.imgur.com/B7SDJ5F.jpeg" alt="Brownie Photo">
+    <div class="reasons">
+      <div class="reason" onclick="showPopup(0)">1. You make even the quiet moments feel magical.<div class="popup" id="popup0">I remember when we first started dating — you were so concerned about my silences. But honestly, every moment back then felt magical. I wasn’t always aware of your insecurities, but I adored you from the depth of my heart every time I saw you with my eyes.</div></div>
+      <div class="reason" onclick="showPopup(1)">2. Your smile feels like home, no matter where we are.<div class="popup" id="popup1">The best accessory on you as well. It's warm, fulfilling, and satisfies me in more ways than I can imagine.</div></div>
+      <div class="reason" onclick="showPopup(2)">3. You’re my calm after every storm.<div class="popup" id="popup2">You ground me in chaos, and somehow remind me that peace isn’t a place — it’s you.</div></div>
+      <div class="reason" onclick="showPopup(3)">4. Stupid me and smart you — the perfect combo that somehow always works.<div class="popup" id="popup3">Maybe opposites don’t just attract — they complete. You make my every ‘stupid’ choice worth it, Brownie.</div></div>
+    </div>
+    <div class="secret">
+      <p><strong>Clue:</strong> The day our story began — in numbers (yyyymmdd)</p>
+      <input id="code" placeholder="Enter code">
+      <button onclick="unlock()">Unlock</button>
+    </div>
+    <div class="note" id="note">💬 Hidden note will appear here once unlocked.</div>
+  </div>
+
+  <script>
+    const popups = document.querySelectorAll('.popup');
+    function showPopup(index){
+      const popup = popups[index];
+      popup.classList.add('show');
+      setTimeout(()=> popup.classList.remove('show'), 4000);
+    }
+
+    function unlock(){
+      const input = document.getElementById('code').value.trim();
+      const note = document.getElementById('note');
+      if(input === "20231125"){
+        note.textContent = "This is for further progress in this website as we make more memories. DW I have made sure that only you and me can open this website.";
+      } else {
+        note.textContent = "❌ Incorrect code, try again!";
+      }
+    }
+  </script>
+</body>
+</html>
